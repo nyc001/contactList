@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head lang="en">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
+        <title>Contact List App</title>
+    </head>
+    <body>
+        <div class="container" ng-controller="contactList">
+            <h1>Contact List App</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Action</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" ng-model="contact.name"/></td>
+                        <td><input type="text" class="form-control" ng-model="contact.email"/></td>
+                        <td><input type="text" class="form-control" ng-model="contact.phone"/></td>
+                        <td><button class="btn btn-primary btn-sm" ng-click="addContact()">Add Contact</button></td>
+                        <td><button class="btn btn-info btn-sm" ng-click="update()">Update</button></td>
+                    </tr>
+                    <tr ng-repeat="contact in contacts">
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.email}}</td>
+                        <td>{{contact.phone}}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" ng-click="remove(contact._id)">Remove</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" ng-click="edit(contact._id)">Edit</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angularjs/angular.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="controllers/contactList.js"></script>
+    </body>
+</html>
